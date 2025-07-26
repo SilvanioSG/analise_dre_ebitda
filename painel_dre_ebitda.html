@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard DRE & EBITDA - Silvanio Gois Fictícia Ltda.</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    .painel {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #00d4ff;
+      margin-bottom: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      background-color: #222;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: right;
+      border-bottom: 1px solid #333;
+    }
+    td:first-child, th:first-child {
+      text-align: left;
+    }
+    .positivo { color: #3efc9b; font-weight: bold; }
+    .negativo { color: #ff5c5c; font-weight: bold; }
+    .resumo {
+      background: #003c4d;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      color: #bdfaff;
+    }
+    footer {
+      font-size: 0.95rem;
+      color: #ccc;
+      border-top: 1px dashed #444;
+      padding-top: 1rem;
+    }
+    canvas {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 800px;
+      height: 500px;
+    }
+    .perfil {
+      margin-bottom: 2rem;
+      color: #bdfaff;
+      font-size: 1rem;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="painel">
+    <div class="perfil">
+      <p><strong>Silvanio Gois</strong> — Técnico em Administração e Edificações | Graduando em Processos Gerenciais</p>
+      <p>Email: <a href="mailto:sg@silvaniogois.com.br" style="color:#00d4ff;">sg@silvaniogois.com.br</a></p>
+    </div>
+
+    <h1>Dashboard DRE - Silvanio Gois Fictícia Ltda.</h1>
+    <h2>Exercício: 2024</h2>
+
+    <canvas id="graficoDespesas"></canvas>
+
+    <table>
+      <tr><th>Descrição</th><th>Valor (R$)</th></tr>
+      <tr><td>Receita Bruta</td><td>8.500.000</td></tr>
+      <tr><td>Deduções e Impostos sobre Vendas</td><td class="negativo">(1.275.000)</td></tr>
+      <tr><td><strong>Receita Líquida</strong></td><td><strong>7.225.000</strong></td></tr>
+      <tr><td>Custos Diretos de Obras</td><td class="negativo">(4.300.000)</td></tr>
+      <tr><td><strong>Lucro Bruto</strong></td><td><strong>2.925.000</strong></td></tr>
+      <tr><td>Despesas Administrativas</td><td class="negativo">(850.000)</td></tr>
+      <tr><td>Despesas Comerciais</td><td class="negativo">(250.000)</td></tr>
+      <tr><td><strong>Lucro Operacional</strong></td><td><strong>1.825.000</strong></td></tr>
+      <tr><td>Depreciação e Amortização</td><td class="negativo">(120.000)</td></tr>
+      <tr><td>Juros e Encargos Financeiros</td><td class="negativo">(280.000)</td></tr>
+      <tr><td>Impostos sobre Lucro</td><td class="negativo">(290.000)</td></tr>
+      <tr><td><strong>Lucro Líquido do Exercício</strong></td><td><strong class="positivo">1.135.000</strong></td></tr>
+    </table>
+
+    <div class="resumo">
+      <h2>📊 EBITDA</h2>
+      <p>
+        EBITDA = Lucro Operacional + Depreciação + Amortização<br>
+        EBITDA = 1.825.000 + 120.000 = <strong class="positivo">R$ 1.945.000</strong>
+      </p>
+    </div>
+
+    <footer>
+      <p><strong>📌 Análise Gerencial:</strong><br>
+        A Silvanio Gois Fictícia Ltda. demonstrou robustez nas operações em 2024. A margem EBITDA ficou em torno de 26,9%, o que é muito saudável para o setor de construção de pequeno e médio porte.<br>
+        Os custos de obra ainda representam um alto percentual, mas a gestão enxuta das despesas administrativas ajudou a manter um bom lucro líquido (15,7% da receita líquida).<br>
+        Sinal verde para expansão controlada e possível captação de novos contratos com segurança financeira.</p>
+    </footer>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('graficoDespesas').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        datasets: [
+          {
+            label: 'Receita Bruta',
+            data: [700000, 720000, 750000, 730000, 740000, 760000, 780000, 790000, 800000, 820000, 830000, 850000],
+            borderColor: '#36a2eb',
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            pointHoverRadius: 6
+          },
+          {
+            label: 'EBITDA',
+            data: [165000, 173000, 189500, 177000, 179800, 192000, 202200, 207800, 211400, 221600, 223200, 232500],
+            borderColor: '#3efc9b',
+            backgroundColor: 'rgba(62, 252, 155, 0.2)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            pointHoverRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        interaction: {
+          mode: 'nearest',
+          intersect: false
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              color: 'black',
+              font: { size: 14 },
+              usePointStyle: true,
+              padding: 20
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return context.dataset.label + ': ' + context.raw.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: 'white' },
+            grid: { color: '#444' }
+          },
+          y: {
+            ticks: {
+              color: 'white',
+              callback: value => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+            },
+            grid: { color: '#444' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
