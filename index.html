@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard DRE & EBITDA - Silvanio Gois Fictícia Ltda.</title>
+  <title>DRE & EBITDA - Silvanio Gois Fictícia Ltda.</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -23,7 +23,6 @@
     }
     h1, h2 {
       color: #00d4ff;
-      margin-bottom: 0.5rem;
     }
     table {
       width: 100%;
@@ -80,34 +79,35 @@
     <div class="perfil">
       <p><strong>Silvanio Gois</strong> — Técnico em Administração e Edificações | Graduando em Processos Gerenciais</p>
       <p>Email: <a href="mailto:sg@silvaniogois.com.br" style="color:#00d4ff;">sg@silvaniogois.com.br</a></p>
+      <p><strong style="color:#00d4ff;">Silvanio Gois Fictícia Ltda.</strong></p>
     </div>
 
-    <h1>Dashboard DRE - Silvanio Gois Fictícia Ltda.</h1>
-    <h2>Exercício: 2024</h2>
+    <h1>Demonstrativo de Resultados (DRE) - 2024</h1>
 
     <canvas id="graficoDespesas"></canvas>
 
     <table>
-      <tr><th>Descrição</th><th>Valor (R$)</th></tr>
-      <tr><td>Receita Bruta</td><td>8.500.000</td></tr>
-      <tr><td>Deduções e Impostos sobre Vendas</td><td class="negativo">(1.275.000)</td></tr>
-      <tr><td><strong>Receita Líquida</strong></td><td><strong>7.225.000</strong></td></tr>
-      <tr><td>Custos Diretos de Obras</td><td class="negativo">(4.300.000)</td></tr>
-      <tr><td><strong>Lucro Bruto</strong></td><td><strong>2.925.000</strong></td></tr>
-      <tr><td>Despesas Administrativas</td><td class="negativo">(850.000)</td></tr>
-      <tr><td>Despesas Comerciais</td><td class="negativo">(250.000)</td></tr>
-      <tr><td><strong>Lucro Operacional</strong></td><td><strong>1.825.000</strong></td></tr>
-      <tr><td>Depreciação e Amortização</td><td class="negativo">(120.000)</td></tr>
-      <tr><td>Juros e Encargos Financeiros</td><td class="negativo">(280.000)</td></tr>
-      <tr><td>Impostos sobre Lucro</td><td class="negativo">(290.000)</td></tr>
-      <tr><td><strong>Lucro Líquido do Exercício</strong></td><td><strong class="positivo">1.135.000</strong></td></tr>
+      <tr><th>Descrição</th><th>Valor (R$)</th><th>% Receita Líquida</th></tr>
+      <tr><td>Receita Bruta</td><td>8.500.000</td><td>-</td></tr>
+      <tr><td>Deduções e Impostos sobre Vendas</td><td class="negativo">(1.275.000)</td><td>-</td></tr>
+      <tr><td><strong>Receita Líquida</strong></td><td><strong>7.225.000</strong></td><td><strong>100%</strong></td></tr>
+      <tr><td>Custos Diretos de Obras</td><td class="negativo">(4.300.000)</td><td>59,5%</td></tr>
+      <tr><td><strong>Lucro Bruto</strong></td><td><strong>2.925.000</strong></td><td>40,5%</td></tr>
+      <tr><td>Despesas Administrativas</td><td class="negativo">(850.000)</td><td>11,8%</td></tr>
+      <tr><td>Despesas Comerciais</td><td class="negativo">(250.000)</td><td>3,5%</td></tr>
+      <tr><td><strong>Lucro Operacional</strong></td><td><strong>1.825.000</strong></td><td>25,2%</td></tr>
+      <tr><td>Depreciação e Amortização</td><td class="negativo">(120.000)</td><td>1,7%</td></tr>
+      <tr><td>Juros e Encargos Financeiros</td><td class="negativo">(280.000)</td><td>3,9%</td></tr>
+      <tr><td>Impostos sobre Lucro</td><td class="negativo">(290.000)</td><td>4,0%</td></tr>
+      <tr><td><strong>Lucro Líquido do Exercício</strong></td><td><strong class="positivo">1.135.000</strong></td><td><strong>15,7%</strong></td></tr>
     </table>
 
     <div class="resumo">
       <h2>📊 EBITDA</h2>
       <p>
         EBITDA = Lucro Operacional + Depreciação + Amortização<br>
-        EBITDA = 1.825.000 + 120.000 = <strong class="positivo">R$ 1.945.000</strong>
+        EBITDA = 1.825.000 + 120.000 = <strong class="positivo">R$ 1.945.000</strong><br>
+        Margem EBITDA: <strong>26,9%</strong>
       </p>
     </div>
 
@@ -159,7 +159,7 @@
             display: true,
             position: 'top',
             labels: {
-              color: 'black',
+              color: '#000',
               font: { size: 14 },
               usePointStyle: true,
               padding: 20
