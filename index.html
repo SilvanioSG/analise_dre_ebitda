@@ -29,17 +29,26 @@
       border-collapse: collapse;
       margin-bottom: 2rem;
       background-color: #222;
+      overflow-x: auto;
+      display: block;
     }
     th, td {
       padding: 1rem;
       text-align: right;
       border-bottom: 1px solid #333;
+      white-space: nowrap;
     }
     td:first-child, th:first-child {
       text-align: left;
     }
-    .positivo { color: #3efc9b; font-weight: bold; }
-    .negativo { color: #ff5c5c; font-weight: bold; }
+    .positivo {
+      color: #3efc9b;
+      font-weight: bold;
+    }
+    .negativo {
+      color: #ff5c5c;
+      font-weight: bold;
+    }
     .resumo {
       background: #003c4d;
       padding: 1.5rem;
@@ -61,8 +70,9 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
-      max-width: 800px;
-      height: 500px;
+      max-width: 100%;
+      height: auto;
+      box-sizing: border-box;
     }
     .perfil {
       margin-bottom: 2rem;
@@ -71,6 +81,32 @@
     }
     a {
       text-decoration: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .painel {
+        padding: 1rem;
+      }
+      .perfil,
+      footer {
+        font-size: 0.9rem;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      table {
+        font-size: 0.85rem;
+      }
+      .resumo h2 {
+        font-size: 1.2rem;
+      }
+      canvas {
+        padding: 0.5rem;
+      }
     }
   </style>
 </head>
